@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Tumble & Sway Digital — Adaptive Digital Tools for Kids</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tumble &amp; Sway Digital — Adaptive Digital Tools for Kids</title>
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+ <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+ <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+ <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --sage: #6B8F71; --sage-light: #EAF0EB; --sage-dark: #3E5C42;
-    --blush: #E8C4B8; --blush-dark: #C47E6A; --cream: #FAF7F2;
-    --charcoal: #2C2C2A; --muted: #6B6B67; --border: rgba(44,44,42,0.1);
+     --sage: #6B8F71; --sage-light: #EAF0EB; --sage-dark: #3E5C42;
+     --blush: #E8C4B8; --blush-dark: #C47E6A; --cream: #FAF7F2;
+     --charcoal: #2C2C2A; --muted: #6B6B67; --border: rgba(44,44,42,0.1);
   }
   html { scroll-behavior: smooth; }
   body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--charcoal); line-height: 1.6; overflow-x: hidden; }
@@ -35,10 +35,135 @@
   .hero-actions { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; }
   .btn-primary { display: inline-block; background: var(--sage-dark); color: var(--cream); font-size: 0.95rem; font-weight: 500; padding: 0.85rem 2rem; border-radius: 100px; text-decoration: none; }
   .btn-ghost { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--muted); font-size: 0.9rem; text-decoration: none; }
-  .btn-ghost::after { content: '→'; }
+  .btn-ghost::after { content: '->'; }
   section { padding: 6rem 2.5rem; }
   .section-label { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); margin-bottom: 1rem; }
   h2 { font-family: 'DM Serif Display', serif; font-size: clamp(2rem, 3.5vw, 2.75rem); line-height: 1.15; letter-spacing: -0.02em; margin-bottom: 1.25rem; }
   .section-desc { font-size: 1rem; font-weight: 300; color: var(--muted); line-height: 1.75; max-width: 520px; }
   .about { background: white; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
-  .about-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; al
+  .about-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+  .about-visual { position: relative; height: 380px; }
+  .about-card { position: absolute; background: var(--sage-light); border-radius: 20px; display: flex; align-items: center; justify-content: center; }
+  .about-card-1 { width: 240px; height: 240px; top: 0; left: 0; font-size: 5rem; border-radius: 30px; }
+  .about-card-2 { width: 180px; height: 180px; bottom: 0; right: 20px; background: var(--blush); border-radius: 24px; font-size: 3.5rem; }
+  .about-card-3 { width: 120px; height: 120px; bottom: 30px; left: 30px; background: var(--sage-dark); border-radius: 20px; font-size: 2.5rem; }
+  .products-inner { max-width: 1100px; margin: 0 auto; }
+  .products-header { margin-bottom: 3.5rem; }
+  .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+  .product-card { background: white; border: 1px solid var(--border); border-radius: 20px; padding: 2rem; transition: transform 0.2s; }
+  .product-card:hover { transform: translateY(-4px); }
+  .product-card.featured { background: var(--sage-dark); color: var(--cream); border-color: var(--sage-dark); }
+  .product-icon { font-size: 2.5rem; margin-bottom: 1.25rem; display: block; }
+  .product-name { font-family: 'DM Serif Display', serif; font-size: 1.5rem; margin-bottom: 0.75rem; }
+  .product-card.featured .product-name { color: var(--cream); }
+  .product-desc { font-size: 0.9rem; font-weight: 300; color: var(--muted); line-height: 1.7; margin-bottom: 1.5rem; }
+  .product-card.featured .product-desc { color: rgba(250,247,242,0.7); }
+  .product-status { display: inline-block; font-size: 0.75rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.35rem 0.875rem; border-radius: 100px; background: var(--sage-light); color: var(--sage-dark); }
+  .product-card.featured .product-status { background: rgba(250,247,242,0.15); color: var(--cream); }
+  .mission { background: var(--charcoal); color: var(--cream); text-align: center; }
+  .mission-inner { max-width: 700px; margin: 0 auto; }
+  .mission .section-label { color: var(--blush); }
+  .mission h2 { color: var(--cream); margin-bottom: 1.5rem; }
+  .mission h2 em { color: var(--blush); }
+  .mission p { font-size: 1.05rem; font-weight: 300; color: rgba(250,247,242,0.65); line-height: 1.8; margin-bottom: 2.5rem; }
+  footer { padding: 2.5rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
+  .footer-logo { font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--charcoal); text-decoration: none; }
+  .footer-logo span { color: var(--sage); }
+  footer p { font-size: 0.8rem; color: var(--muted); }
+  footer a { color: var(--muted); text-decoration: none; font-size: 0.8rem; }
+  .footer-links { display: flex; gap: 1.5rem; }
+  @media (max-width: 768px) {
+     nav { padding: 1rem 1.5rem; }
+     section { padding: 4rem 1.5rem; }
+     .hero { padding: 7rem 1.5rem 4rem; }
+     .hero-blob { display: none; }
+     .about-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+     .about-visual { height: 260px; }
+     footer { flex-direction: column; }
+  }
+  </style>
+ </head>
+ <body>
+  <nav>
+     <a href="#" class="nav-logo">Tumble &amp; Sway <span>Digital</span></a>a>
+    <div class="nav-links">
+        <a href="#about" class="nav-link">About</a>a>
+        <a href="#apps" class="nav-link">Apps</a>a>
+        <a href="mailto:keyko@tumbleandswaydigital.com" class="nav-cta">Contact</a>a>
+    </div>div>
+  </nav>
+ <section class="hero">
+   <div class="hero-bg"></div>div>
+   <div class="hero-blob"></div>div>
+   <div class="hero-content">
+       <div class="hero-badge">Adaptive digital tools</div>div>
+       <h1>Tech built for <em>every</em> kind of kid</h1>
+       <p class="hero-desc">Tumble &amp; Sway Digital creates apps and digital experiences designed with neurodivergent children and their families in mind — because every child deserves tools that work the way they do.</p>p>
+       <div class="hero-actions">
+             <a href="#apps" class="btn-primary">See our apps</a>a>
+             <a href="mailto:keyko@tumbleandswaydigital.com" class="btn-ghost">Get in touch</a>a>
+       </div>div>
+   </div>div>
+ </section>section>
+ <section class="about" id="about">
+   <div class="about-inner">
+       <div class="about-visual">
+             <div class="about-card about-card-1">&#x1F426;</div>div>
+             <div class="about-card about-card-2">&#x1F3AE;</div>div>
+             <div class="about-card about-card-3">&#x2728;</div>div>
+       </div>div>
+       <div>
+              <p class="section-label">Our story</p>p>
+              <h2>Digital tools with heart</h2>
+              <p class="section-desc">Tumble &amp; Sway Digital is the tech arm of the Tumble &amp; Sway family brand — built by parents, for families navigating neurodiversity. We design apps that center communication, play, and connection.</p>p>
+              <br>
+              <p class="section-desc">Based in Orem, Utah. Founded 2026 under Tumble &amp; Sway Digital LLC.</p>p>
+       </div>
+   </div>
+ </section>section>
+  <section id="apps">
+     <div class="products-inner">
+          <div class="products-header">
+                 <p class="section-label">What we're building</p>p>
+                 <h2>Apps in the works</h2>
+                 <p class="section-desc">We're early — and intentional. Our first app is designed to help non-verbal and minimally verbal kids communicate more independently.</p>p>
+          </div>
+          <div class="products-grid">
+                 <div class="product-card featured">
+                          <span class="product-icon">&#x1F426;</span>
+                          <p class="product-name">Chirpy Birdie</p>p>
+                          <p class="product-desc">An AAC (Augmentative and Alternative Communication) app for kids. Tap symbols, build sentences, and find your voice — at your own pace.</p>p>
+                          <span class="product-status">Coming soon</span>
+                 </div>
+                 <div class="product-card">
+                          <span class="product-icon">&#x1F9E9;</span>
+                          <p class="product-name">More on the way</p>p>
+                          <p class="product-desc">We're exploring tools for sensory play, adaptive learning, and family connection. Sign up to hear what we're building next.</p>p>
+                          <span class="product-status">In exploration</span>
+                 </div>
+          </div>
+     </div>
+  </section>section>
+  <section class="mission">
+     <div class="mission-inner">
+          <p class="section-label">Our mission</p>p>
+          <h2>Every child deserves a <em>voice</em></h2>
+          <p>We believe technology should meet kids where they are. Not where we expect them to be. Tumble &amp; Sway Digital exists to close the gap between what kids need and what the App Store offers.</p>
+         <a href="mailto:keyko@tumbleandswaydigital.com" class="btn-primary" style="background: var(--blush-dark);">Get in touch</a>a>
+     </div>
+  </section>section>
+ <footer>
+    <a href="#" class="footer-logo">Tumble &amp; Sway <span>Digital</span></a>a>
+    <p>&#169; 2026 Tumble &amp; Sway Digital LLC &middot; Orem, Utah</p>p>
+    <div class="footer-links">
+         <a href="mailto:keyko@tumbleandswaydigital.com">keyko@tumbleandswaydigital.com</a>a>
+    </div>
+ </footer>
+ </body>
+</html>html>
+ </footer></p>
+       </div></em></h1></span>
+  </nav>
+ </body>
+ </style></title>
+ </head>
